@@ -53,7 +53,11 @@ export default class App extends Component {
         <div>
           <Routes>
             <Route exact path="/dogs" element={<DogList />} />
-            <Route exact path="/dogs/:name" element={<DogDetails />} />
+            <Route
+              exact
+              path="/dogs/:name"
+              element={<DogDetails dogs={this.props.dogs} />}
+            />
             <Route exact path="*" element={<ErrorPage />} />
           </Routes>
         </div>
@@ -61,18 +65,3 @@ export default class App extends Component {
     );
   }
 }
-
-// {this.props.dogs.map(({ name, age, facts, src }) => (
-//   <Route
-//     exact
-//     path="/dogs/:name"
-//     render={(renderProps) => (
-//       <DogDetails
-//         name={renderProps.match.params.name}
-//         age={age}
-//         facts={facts}
-//         img={src}
-//       />
-//     )}
-//   />
-// ))}

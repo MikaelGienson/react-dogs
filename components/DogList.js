@@ -1,16 +1,21 @@
-import { Component } from "react";
 import App from "../src/App";
-import { Route, Routes } from "react-router-dom";
-import DogDetails from "./DogDetails";
+import { NavLink } from "react-router-dom";
 
-export default class DogList extends Component {
-  render() {
-    return (
-      <div className="DogList">
-        {App.defaultProps.dogs.map(({ name, age, facts, src }) => (
-          <DogDetails name={name} img={src} />
-        ))}
-      </div>
-    );
-  }
+function DogList() {
+  return (
+    <div className="DogList">
+      {App.defaultProps.dogs.map(({ name, src }) => (
+        <div>
+          <NavLink activeClassName="Dog-active-link" to={`/dogs/${name}`}>
+            <div>
+              <img src={src} alt={name}></img>
+              <h1>{name}</h1>
+            </div>
+          </NavLink>
+        </div>
+      ))}
+    </div>
+  );
 }
+
+export default DogList;

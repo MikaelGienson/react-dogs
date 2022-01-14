@@ -1,46 +1,23 @@
-import { Component } from "react";
 import { useParams } from "react-router-dom";
-import App from "../src/App";
 
-export default function DogDetails() {
-  return;
-  <div></div>;
-}
-//   return (
+const DogDetails = ({ dogs }) => {
+  const { name } = useParams();
+  const dogDetails = dogs.filter((dog) => dog.name === name);
 
-//     <div className="DogDetails">
-//       <h1>{this.props.name}</h1>
-//       <h1>{this.props.age}</h1>
-//       <img src={this.props.img} alt=''/>
-//       {this.props.facts}
-//       <h1>Piezzzz</h1>
-//     </div>
-//   );
-// }
+  return (
+    <div className="DogDetails">
+      {dogDetails.map((dog) => (
+        <div className="full-card" key={""}>
+          <h2>Name: {dog.name}</h2>
+          <img src={dog.src} alt={dog.name} />
+          <h4>Age: {dog.age}</h4>
+          {dog.facts.map((fact) => (
+            <h4>{fact}</h4>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+};
 
-//   const withRouter = DogDetails => props => {
-//     const params = useParams();
-//     // etc... other react-router-dom v6 hooks
-
-//     return (
-//       <DogDetails
-//         {...props}
-//         params={params}
-//         // etc...
-//       />
-//     );
-//   };
-//  }
-// function DogDetails(props) {
-//   console.warn(props)
-//     return (
-
-//       <div className="DogDetails">
-//         <h1>{this.props.name}</h1>
-//         <h1>{this.props.age}</h1>
-//         <img src={this.props.img} alt=''/>
-//         {/* {this.props.facts.map()} */}
-//       </div>
-//     );
-
-// }
+export default DogDetails;
