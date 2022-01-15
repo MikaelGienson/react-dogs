@@ -1,12 +1,11 @@
 import { Component } from "react";
-import whiskey from "../imgs/whiskey.jpg";
-import hazel from "../imgs/hazel.jpg";
-import tubby from "../imgs/tubby.jpg";
-import DogList from "../components/DogList";
-import Navbar from "../components/Navbar";
-import { Route, Routes } from "react-router-dom";
-import DogDetails from "../components/DogDetails";
-import ErrorPage from "../components/ErrorPage";
+import { whiskey, hazel, tubby } from "./imgs";
+
+import "./App.css";
+
+import { Route, Routes, Navigate } from "react-router-dom";
+
+import { DogList, DogDetails, ErrorPage } from "./components";
 
 export default class App extends Component {
   static defaultProps = {
@@ -47,18 +46,14 @@ export default class App extends Component {
     return (
       <div className="App">
         <div>
-          <h1>Dog Shelter</h1>
-          <Navbar />
-        </div>
-        <div>
           <Routes>
-            <Route exact path="/dogs" element={<DogList />} />
+            <Route path="*" element={<ErrorPage />} />
+            <Route path="/" element={<Navigate replace to="/dogs" />} />
+            <Route path="/dogs" element={<DogList />} />
             <Route
-              exact
               path="/dogs/:name"
               element={<DogDetails dogs={this.props.dogs} />}
             />
-            <Route exact path="*" element={<ErrorPage />} />
           </Routes>
         </div>
       </div>

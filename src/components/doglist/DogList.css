@@ -1,0 +1,31 @@
+.DogList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  column-gap: 3rem;
+}
+
+.DogList-details {
+  text-align: center;
+}
+
+.DogList-navlink {
+  text-decoration: none;
+}
+
+.Dog-active-link {
+}
+
+.circular-img {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 50%;
+  background: black;
+  height: 120px;
+  width: 120px;
+}
+.circular-img img {
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: 10px;
+}

@@ -1,0 +1,16 @@
+.DogDetails {
+  display: flex;
+  justify-content: center;
+}
+.DogDetails-card {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+
+  width: 300px;
+  border: solid;
+}
+
+.Dog-img {
+  width: 300px;
+}

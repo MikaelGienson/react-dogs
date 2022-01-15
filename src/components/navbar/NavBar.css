@@ -1,0 +1,10 @@
+.NavBar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 1rem;
+}
+
+.NavBar-navlink {
+  text-decoration: none;
+}
