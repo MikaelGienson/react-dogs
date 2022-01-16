@@ -1,11 +1,11 @@
 import { Component } from "react";
 import { whiskey, hazel, tubby } from "./imgs";
-
+import "bootstrap";
+import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-
-import { Route, Routes, Navigate } from "react-router-dom";
-
-import { DogList, DogDetails, ErrorPage } from "./components";
+import { NavBar } from "./components";
+import RoutesApp from "./RoutesApp";
+import "./index.css";
 
 export default class App extends Component {
   static defaultProps = {
@@ -44,17 +44,10 @@ export default class App extends Component {
   };
   render() {
     return (
-      <div className="App">
-        <div>
-          <Routes>
-            <Route path="*" element={<ErrorPage />} />
-            <Route path="/" element={<Navigate replace to="/dogs" />} />
-            <Route path="/dogs" element={<DogList />} />
-            <Route
-              path="/dogs/:name"
-              element={<DogDetails dogs={this.props.dogs} />}
-            />
-          </Routes>
+      <div>
+        <NavBar />
+        <div className="container">
+          <RoutesApp dogs={this.props.dogs} />
         </div>
       </div>
     );
